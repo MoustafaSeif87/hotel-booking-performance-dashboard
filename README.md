@@ -1,43 +1,49 @@
-# hotel-booking-performance-dashboard
-Power BI dashboard analyzing hotel revenue, bookings, cancellations, and customer stay patterns (2015–2017).
+# Hotel Booking Performance Dashboard (2015–2017) | Power BI
+
 ## Overview
-This project is a Power BI dashboard analyzing hotel booking performance (2015–2017), comparing **City Hotel** and **Resort Hotel** across revenue, bookings, cancellations, and stay behavior. The goal is to highlight operational and commercial insights that support better forecasting and performance decisions.
+This project analyzes hotel booking performance data (2015–2017) to compare **City Hotel** vs **Resort Hotel** across key commercial and operational metrics. The dashboard highlights revenue performance, booking volume trends, cancellation behavior, average daily rate (ADR), length of stay, and estimated revenue impact from cancellations.
 
-## Business Questions Answered
+## Business Questions
 - Which hotel type generates higher revenue and booking volume?
-- How do cancellations impact overall performance and estimated lost revenue?
-- What are the peak months for bookings and revenue?
-- How does **Average Daily Rate (ADR)** and **Average Length of Stay** differ between City and Resort hotels?
+- How do bookings and revenue change month-by-month (seasonality)?
+- How do cancellation levels differ between City and Resort hotels?
+- What is the overall cancellation rate and its revenue impact?
+- How does average length of stay differ by hotel type?
 
-## Key Metrics (KPIs)
-- **Total Revenue**
-- **Total Bookings**
-- **Total Nights**
-- **Average Daily Rate (ADR)**
-- **Cancellation Rate**
-- **Estimated Lost Revenue** (based on canceled bookings)
+## Key KPIs (Dashboard Metrics)
+- **Total Revenue:** 42.72M  
+- **Total Bookings:** 119K  
+- **Total Nights:** 409K  
+- **Average ADR:** 102.44  
+- **Cancellation Rate:** 37.24%  
+- **Estimated Lost Revenue (Cancellations):**
+  - City Hotel: 10.9M
+  - Resort Hotel: 5.8M
 
 ## Key Insights (Summary)
-- City Hotel drives higher overall revenue and booking volume compared to Resort Hotel.
-- Resort Hotel shows a longer average length of stay, indicating different guest behavior and demand patterns.
-- Cancellations represent a significant performance factor and contribute to measurable estimated lost revenue.
-- Seasonality trends show peak performance during mid-year months (notably summer period).
+- **City Hotel** generates higher total revenue than Resort Hotel (≈25M vs ≈17M).
+- Booking and revenue patterns show strong **seasonality**, with a peak around **August**.
+- **Cancellations are material** (37.24%), with higher cancellation volume in City Hotel.
+- Estimated lost revenue due to cancellations is significant, especially for City Hotel (10.9M).
+- **Resort Hotel** has a longer average length of stay (4.36 nights) compared to City Hotel (2.99 nights).
 
-## Data & Tools Used
-**Tools:**
-- Power BI (data model + DAX measures)
-- Power Query (data cleaning and transformation)
+## Data Preparation (Power Query)
+The dataset was cleaned and transformed in **Power Query**, including:
+- Creating a **Date** column (Year + Month + Day) for time-series analysis
+- Converting Month name text to a proper date format
+- Creating calculated fields:
+  - **Total Nights** = stays_in_weekend_nights + stays_in_week_nights
+  - **Revenue** = Total Nights * ADR
+- Ensuring correct data types for accurate calculations (Date, Decimal, Whole Number)
 
-**Skills Demonstrated:**
-- KPI design and dashboard storytelling
-- Data cleaning and transformation (ETL)
-- DAX measures (aggregation, rates, revenue impact)
-- Hotel-type segmentation and performance comparison
-- Trend analysis (monthly seasonality)
+## DAX Measures (Examples)
+Key measures used in the dashboard:
+- **Total Revenue** = SUM(Revenue)
+- **Total Bookings** = COUNTROWS(Table)
+- **Total Nights** = SUM(Total Nights)
+- **Average ADR** = AVERAGE(ADR)
+- **Cancellation Rate** = Cancelled Bookings / Total Bookings (formatted as %)
 
-## How the Dashboard is Structured
-- **Top KPI cards**: revenue, bookings, nights, ADR, and cancellation rate
-- **Comparison visuals**: City vs Resort performance
-- **Trend analysis**: monthly booking and revenue patterns
-- **Cancellation analysis**: canceled vs not canceled by hotel type
-- **Impact measure**: estimated lost revenue by hotel type
+## Tools Used
+- **Power BI** (Data modeling, DAX measures, interactive dashboard)
+- **Power Query** (Data cleaning, transformations, calculated columns)
