@@ -3,9 +3,6 @@ Power BI dashboard analyzing hotel revenue, bookings, cancellations, and custome
 ## Overview
 This project is a Power BI dashboard analyzing hotel booking performance (2015–2017), comparing **City Hotel** and **Resort Hotel** across revenue, bookings, cancellations, and stay behavior. The goal is to highlight operational and commercial insights that support better forecasting and performance decisions.
 
-## Dashboard Preview
-![Dashboard Preview](images/dashboard-overview.png)
-
 ## Business Questions Answered
 - Which hotel type generates higher revenue and booking volume?
 - How do cancellations impact overall performance and estimated lost revenue?
